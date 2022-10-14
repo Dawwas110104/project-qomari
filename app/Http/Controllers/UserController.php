@@ -19,7 +19,8 @@ class UserController extends Controller
         // $users = User::all();
         // return $users;
         $keyword = $request->keyword;
-        $users = User::where('name', 'LIKE', '%' . $keyword . '%')
+        $users = User::where('role_id', '2')
+                ->where('name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
                 ->paginate(3);
         
@@ -61,7 +62,7 @@ class UserController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return redirect()->back();
+        return redirect()->route('pengguna.index');
     }
     
     /**

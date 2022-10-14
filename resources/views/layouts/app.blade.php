@@ -139,25 +139,19 @@
             <div class="content-side content-side-user px-0 py-0">
               <!-- Visible only in mini mode -->
               <div class="smini-visible-block animated fadeIn px-3">
-                <img class="img-avatar img-avatar32" src="assets/media/avatars/avatar15.jpg" alt="">
+                <img class="img-avatar img-avatar32" src="{{ asset('assets/media/avatars/avatar15.jpg') }}" alt="">
               </div>
               <!-- END Visible only in mini mode -->
 
               <!-- Visible only in normal mode -->
               <div class="smini-hidden text-center mx-auto">
-                <a class="img-link" href="be_pages_generic_profile.html">
-                  <img class="img-avatar" src="assets/media/avatars/avatar15.jpg" alt="">
+                <a class="img-link" href="#">
+                  <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar15.jpg') }}" alt="">
                 </a>
                 <ul class="list-inline mt-3 mb-0">
                   <li class="list-inline-item">
-                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">
+                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="#">
                         {{ Auth::user()->name }}
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
-                      <i class="fa fa-burn"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
@@ -183,32 +177,42 @@
             <!-- Side Navigation -->
             <div class="content-side content-side-full">
               <ul class="nav-main">
+                @if(Auth::user()->role_id == 1)
                 <li class="nav-main-item">
-                  <a class="nav-main-link" href="be_pages_dashboard.html">
+                  <a class="nav-main-link" href="{{ route('admin') }}">
                     <i class="nav-main-link-icon fa fa-house-user"></i>
                     <span class="nav-main-link-name">Dashboard</span>
                   </a>
                 </li>
+                @else
+                <li class="nav-main-item">
+                  <a class="nav-main-link" href="{{ route('donatur.index') }}">
+                    <i class="nav-main-link-icon fa fa-house-user"></i>
+                    <span class="nav-main-link-name">Dashboard</span>
+                  </a>
+                </li>
+                @endif
+                
                 <li class="nav-main-heading">User Interface</li>
                 @if(Auth::user()->role_id == 1)
                 <li class="nav-main-item">
-                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                    <span class="nav-main-link-name">Data Donatur</span>
+                  <a class="nav-main-link" href="{{ route('pengguna.index') }}">
+                    <i class="nav-main-link-icon fa fa-user-tie"></i>
+                    <span class="nav-main-link-name">Donatur</span>
                   </a>
                 </li>
 
                 <li class="nav-main-item">
-                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                    <span class="nav-main-link-name">Data Penerima Donasi</span>
+                  <a class="nav-main-link" href="{{ route('penerimadonasi.index') }}">
+                    <i class="nav-main-link-icon fa fa-children"></i>
+                    <span class="nav-main-link-name">Anak Yatim</span>
                   </a>
                 </li>
 
                 <li class="nav-main-item">
-                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                    <span class="nav-main-link-name">Data Transaksi</span>
+                  <a class="nav-main-link" href="{{ route('transaksi.index') }}">
+                    <i class="nav-main-link-icon fa fa-money-bill-transfer"></i>
+                    <span class="nav-main-link-name">Transaksi</span>
                   </a>
                 </li>
                 @else
@@ -337,23 +341,16 @@
                     </div>
                   </div>
                 </div>
-                <div class="p-3 bg-body-light rounded-bottom">
-                  <div class="row g-sm text-center">
-                    <div class="col-6">
-                      <a class="dropdown-item fs-sm fw-medium mb-0" href="be_layout_api.html">
-                        <i class="fa fa-flask opacity-50 me-1"></i> Layout API
-                      </a>
-                    </div>
-                    <div class="col-6">
-                      <a class="dropdown-item fs-sm fw-medium mb-0" href="be_ui_color_themes.html">
-                        <i class="fa fa-paint-brush opacity-50 me-1"></i> Themes
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <!-- END Color Themes -->
+
+            <button type="button" class="btn btn-sm btn-alt-secondary">
+              <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+              <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
+                <i class="fa fa-burn"></i>
+              </a>
+            </button>
           </div>
           <!-- END Left Section -->
 
@@ -597,12 +594,12 @@
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
-    <script src="assets/js/codebase.app.min.js"></script>
+    <script src="{{ asset('assets/js/codebase.app.min.js') }}"></script>
 
     <!-- Page JS Plugins -->
-    <script src="assets/js/plugins/chart.js/chart.min.js"></script>
+    <script src="{{ asset('assets/js/plugins/chart.js/chart.min.js') }}"></script>
 
     <!-- Page JS Code -->
-    <script src="assets/js/pages/be_pages_dashboard.min.js"></script>
+    <script src="{{ asset('assets/js/pages/be_pages_dashboard.min.js') }}"></script>
   </body>
 </html>
