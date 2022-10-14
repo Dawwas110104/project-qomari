@@ -17,15 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->integer('role_id');
             $table->string('name');
+            $table->string('no_telpon');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('usia')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('kec_domisili')->nullable();
-            $table->integer('nomor_kk')->nullable();
-            $table->string('akta_kematian')->nullable();
-            $table->integer('rekening_bank')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

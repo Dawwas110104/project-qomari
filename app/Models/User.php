@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Kyslik\ColumnSortable\Sortable;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,14 +22,9 @@ class User extends Authenticatable
     protected $fillable = [
         'role_id',
         'name',
+        'no_telpon',
         'email',
         'password',
-        'usia',
-        'alanat',
-        'kec_domisili',
-        'nomor_kk',
-        'akta_kematian',
-        'rekening_bank',
     ];
 
     /**
@@ -47,5 +44,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    public $sortable = [
+        'name', 'usia', 'kec_domisili'
     ];
 }

@@ -1,106 +1,1170 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-        <title>Laravel</title>
+    <title>Codebase - Bootstrap 5 Admin Template &amp; UI Framework</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+    <!-- Stylesheets -->
+
+    <!-- Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+  </head>
+  <body>
+
+    <!-- Page Container -->
+    <!--
+      Available classes for #page-container:
+    
+      GENERIC
+    
+        'remember-theme'                            Remembers active color theme and dark mode between pages using localStorage when set through
+                                                    - Theme helper buttons [data-toggle="theme"],
+                                                    - Layout helper buttons [data-toggle="layout" data-action="dark_mode_[on/off/toggle]"]
+                                                    - ..and/or Codebase.layout('dark_mode_[on/off/toggle]')
+    
+      SIDEBAR & SIDE OVERLAY
+    
+        'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
+        'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
+        'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
+        'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
+        'sidebar-dark'                              Dark themed sidebar
+    
+        'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
+        'side-overlay-o'                            Visible Side Overlay by default
+    
+        'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
+    
+        'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
+    
+      HEADER
+    
+        ''                                          Static Header if no class is added
+        'page-header-fixed'                         Fixed Header
+    
+      HEADER STYLE
+    
+        ''                                          Classic Header style if no class is added
+        'page-header-modern'                        Modern Header style
+        'page-header-dark'                          Dark themed Header (works only with classic Header style)
+        'page-header-glass'                         Light themed Header with transparency by default
+                                                    (absolute position, perfect for light images underneath - solid light background on scroll if the Header is also set as fixed)
+        'page-header-glass page-header-dark'        Dark themed Header with transparency by default
+                                                    (absolute position, perfect for dark images underneath - solid dark background on scroll if the Header is also set as fixed)
+    
+      MAIN CONTENT LAYOUT
+    
+        ''                                          Full width Main Content if no class is added
+        'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
+        'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
+    
+      DARK MODE
+    
+        'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
+    -->
+    <div id="page-container" class="page-header-fixed page-header-glass main-content-boxed">
+
+      <!-- Header -->
+      <header id="page-header">
+        <!-- Header Content -->
+        <div class="content-header">
+          <!-- Left Section -->
+          <div class="space-x-1 d-flex align-items-center space-x-2">
+            <!-- Logo -->
+            <a class="link-fx fw-bold" href="index.html">
+              <i class="fa fa-fire text-primary"></i>
+              <span class="fs-4 text-dual">code</span><span class="fs-4 text-primary">base</span>
+            </a>
+            <!-- END Logo -->
+
+            <!-- Version -->
+            <span class="d-inline-block fs-xs fw-medium bg-primary-dark text-white rounded-pill py-1 px-2">5.3</span>
+            <!-- END Version -->
+          </div>
+          <!-- END Left Section -->
+
+          <!-- Right Section -->
+          <div class="space-x-1">
+            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <a class="btn btn-alt-secondary px-3" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
+              <i class="fa fa-burn"></i>
+            </a>
+            @guest
+                @if (Route::has('login'))
+                <a class="btn btn-alt-primary px-3 d-none d-sm-inline-block" href="{{ route('login') }}" target="_blank">
+                    <i class="fa fa-rocket opacity-50"></i>
+                    <span class="ms-1 d-none d-sm-inline-block">{{ __('Login') }}</span>
+                </a>
+                @endif
+
+                @if (Route::has('register'))
+                <a class="btn btn-alt-success px-3" href="{{ route('register') }}">
+                    <i class="fa fa-shopping-bag opacity-50"></i>
+                    <span class="ms-1 d-none d-sm-inline-block">{{ __('Register') }}</span>
+                </a>
+                @endif
+            @else
+            <!-- User Dropdown -->
+            <div class="dropdown d-inline-block px-3">
+                <button type="button" class="btn btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user d-sm-none"></i>
+                    <span class="d-none d-sm-inline-block fw-semibold">{{ Auth::user()->name }}</span>
+                    <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                    <div class="px-2 py-3 bg-body-light rounded-top">
+                        <h5 class="h6 text-center mb-0">
+                            {{ Auth::user()->name }}
+                        </h5>
+                    </div>
+                    <div class="p-2">
+                        @if(Auth::user()->role_id == 1)
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="{{ route('admin') }}">
+                                <span>Profile</span>
+                                <i class="fa fa-fw fa-user opacity-25"></i>
+                            </a>
+                        @else
+                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="{{ route('donatur.index') }}">
+                                <span>Profile</span>
+                                <i class="fa fa-fw fa-user opacity-25"></i>
+                            </a>
                         @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                       <!--  <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div> -->
+                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" 
+                                    href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                            <span>Sign Out</span>
+                            <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>
+            @endguest
+            
+          </div>
+          <!-- END Right Section -->
         </div>
-    </body>
+        <!-- END Header Content -->
+      </header>
+      <!-- END Header -->
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <!-- Hero -->
+        <div class="bg-body-extra-light hero-bubbles">
+          <span class="hero-bubble hero-bubble-lg bg-warning" style="top: 20%; left: 10%;"></span>
+          <span class="hero-bubble bg-success" style="top: 20%; left: 80%;"></span>
+          <span class="hero-bubble hero-bubble-sm bg-corporate" style="top: 40%; left: 25%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-earth" style="top: 10%; left: 20%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-pulse" style="top: 30%; left: 90%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-danger" style="top: 35%; left: 20%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-warning" style="top: 60%; left: 35%;"></span>
+          <span class="hero-bubble bg-info" style="top: 60%; left: 80%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-flat" style="top: 75%; left: 70%;"></span>
+          <span class="hero-bubble hero-bubble-lg bg-earth" style="top: 75%; left: 10%;"></span>
+          <span class="hero-bubble bg-elegance" style="top: 90%; left: 90%;"></span>
+          <div class="position-relative d-flex align-items-center">
+            <div class="content content-full">
+              <div class="row g-6 w-100 py-7 overflow-hidden">
+                <div class="col-md-7 order-md-last py-4 d-md-flex align-items-md-center justify-content-md-end">
+                  <img class="img-fluid" src="assets/media/various/landing-promo-hero.png" alt="Hero Promo">
+                </div>
+                <div class="col-md-5 py-4 d-flex align-items-center">
+                  <div class="text-center text-md-start">
+                    <h1 class="fw-bold fs-2 mb-3">
+                      Next generation, multipurpose UI framework for web apps
+                    </h1>
+                    <p class="text-muted fw-medium mb-4">
+                      Codebase is a super flexible solution built with <span class="fw-semibold">Bootstrap 5</span>, <span class="fw-semibold">ES6</span> and <span class="fw-semibold">Sass</span>. Use it to save time and create all kinds of web applications with friendly and fast user interface. <span class="fw-semibold">No jQuery</span> in core. Now with a brand new <a class="fw-semibold" href="javascript:void(0)" data-toggle="layout" data-action="dark_mode_toggle">dark mode</a>.
+                    </p>
+                    <a class="btn btn-alt-primary py-3 px-4" href="be_pages_dashboard.html" target="_blank">
+                      <i class="fa fa-arrow-right opacity-50 me-1"></i> Enter Dashboard
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Hero -->
+
+        <!-- Key Features -->
+        <div class="position-relative bg-body-extra-light">
+          <div class="position-absolute top-0 end-0 bottom-0 start-0 bg-body-light skew-y-1"></div>
+          <div class="position-relative">
+            <div class="content content-full">
+              <div class="row g-0 justify-content-center text-center py-5">
+                <div class="col-xl-4">
+                  <div class="w-100 py-4">
+                    <div class="d-inline-block bg-body-extra-light rounded p-1 mb-4">
+                      <div class="d-inline-block bg-corporate-lighter rounded p-4">
+                        <i class="fa fa-cubes fa-2x text-corporate"></i>
+                      </div>
+                    </div>
+                    <h3 class="h4 fw-bold mb-1">
+                      Powerful Layout
+                    </h3>
+                    <p class="fw-medium text-muted mb-0">
+                      Tons of predesigned pages.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="w-100 py-4">
+                    <div class="d-inline-block bg-body-extra-light rounded p-1 mb-4">
+                      <div class="d-inline-block bg-pulse-lighter rounded p-4">
+                        <i class="fa fa-code fa-2x text-pulse"></i>
+                      </div>
+                    </div>
+                    <h3 class="h4 fw-bold mb-1">
+                      Laravel 9 Starter Kit
+                    </h3>
+                    <p class="fw-medium text-muted mb-0">
+                      Super boost your Laravel based project.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="w-100 py-4">
+                    <div class="d-inline-block bg-body-extra-light rounded p-1 mb-4">
+                      <div class="d-inline-block bg-elegance-lighter rounded p-4">
+                        <i class="fa fa-rocket fa-2x text-elegance"></i>
+                      </div>
+                    </div>
+                    <h3 class="h4 fw-bold mb-1">
+                      Bootstrap 5, Sass and ES6
+                    </h3>
+                    <p class="fw-medium text-muted mb-0">
+                      Only the latest tech under the hood.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Key Features -->
+
+        <!-- Unlimited Dashboards -->
+        <div class="bg-body-extra-light">
+          <div class="content content-full">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">01</span>
+                <h2 class="fw-bold mb-2 text-center">
+                  Unlimited <span class="text-primary">Dashboards</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  Let your imagination build your idea with Codebase.
+                </h3>
+              </div>
+              <div class="row g-5 py-2">
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="be_pages_dashboard.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-default.png" alt="Dashboard Default">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Default
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Codebase’s original dashboard design provides a clean, modern and minimal starting point for your web application.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_classic.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-classic.png" alt="Dashboard Classic">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Classic
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    A classic and well tested approach for a project which is going to handle much data and needs all the space it can get.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_clean.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-clean.png" alt="Dashboard Clean">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Clean
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Clean and modern dashboard which enables you to create rich content and user driven experiences.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_social.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-social.png" alt="Dashboard Social">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Social
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Building a social dashboard shouldn’t be hard. It should be easy, so you could spend more time building your app.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_corporate.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-corporate.png" alt="Dashboard Corporate">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Corporate
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Corporate dashboard design that is modern, clean and provokes the credibility you want for your business.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_minimal.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-minimal.png" alt="Dashboard Minimal">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Minimal
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Super minimal design for you that you value simplicity and would like to incorporate into in your projects.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_pop.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-pop.png" alt="Dashboard Pop">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Pop
+                  </h4>
+                  <p class="fw-medium text-muted">
+                    Material inspired design which give depth to your block elements and changes the way interact with your dashboard.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="db_medical.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-medical.png" alt="Dashboard Medical">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Medical
+                  </h4>
+                  <p>
+                    A perfect starting point for your medical web application showcasing a doctor’s overview dashboard.
+                  </p>
+                </div>
+                <div class="col-md-4 py-2">
+                  <a class="options-container push text-white rounded overflow-hidden" href="be_pages_dashboard2.html" target="_blank">
+                    <img class="img-fluid options-item" src="assets/media/various/preview-db-dashboard2.png" alt="Dashboard Media">
+                    <div class="options-overlay bg-black-50">
+                      <div class="options-overlay-content h5 fw-bold text-uppercase">
+                        <i class="fa fa-link fa-2x"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <h4 class="fw-bold mb-2">
+                    Rich Examples
+                  </h4>
+                  <p>
+                    More variations and examples are included in the main layout as well. Building the dashboard UI you want is just a click away.
+                  </p>
+                </div>
+              </div>
+              <div class="text-center">
+                <a class="btn btn-alt-secondary" href="be_pages_dashboard4.html" target="_blank">
+                  <i class="fa fa-rocket opacity-50 me-1"></i> Explore More Dashboards
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Unlimited Dashboards -->
+
+        <!-- Page Packs -->
+        <div class="position-relative bg-body-extra-light">
+          <div class="position-absolute top-0 end-0 bottom-0 start-0 bg-body-light -skew-y-1"></div>
+          <div class="position-relative">
+            <div class="content content-full">
+              <div class="pt-7 pb-5">
+                <div class="position-relative">
+                  <span class="text-back">02</span>
+                  <h2 class="fw-bold text-center mb-2">
+                    Page <span class="text-primary">Packs</span>
+                  </h2>
+                  <h3 class="h4 fw-medium text-muted text-center mb-5">
+                    Just a glimpse of the ready made pages included to rocket start your project.
+                  </h3>
+                </div>
+                <div class="row g-5 py-2">
+                  <div class="col-md-4 py-2">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_crypto_dashboard.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-crypto.png" alt="Page Pack Crypto">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      Crypto
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Cryptocurrency exchange pages for your blockchain project.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-2">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_ecom_dashboard.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-ecommerce.png" alt="Page Pack e-Commerce">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      e-Commerce
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Products and sales management pages for your e-commerce dashboards.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-2">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_elearning_courses.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-elearning.png" alt="Page Pack e-Learning">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      e-Learning
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Start building your e-learning platform easily with the included pages.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-2">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_forum_categories.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-forum.png" alt="Page Pack Forum">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      Forum
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Perfect if you are building a community or support section in your app.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-2">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_auth_all.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-auth.png" alt="Page Pack Authentication">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      Authentication
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Tons of options to meet every possible need when designing your authentication sections.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <a class="options-container push text-white rounded overflow-hidden" href="be_pages_error_all.html" target="_blank">
+                      <img class="img-fluid options-item" src="assets/media/various/preview-page-pack-error.png" alt="Page Pack Error">
+                      <div class="options-overlay bg-black-50">
+                        <div class="options-overlay-content h5 fw-bold text-uppercase">
+                          <i class="fa fa-link fa-2x"></i>
+                        </div>
+                      </div>
+                    </a>
+                    <h4 class="fw-bold mb-2">
+                      Error
+                    </h4>
+                    <p class="fw-medium text-muted">
+                      Clean error pages to incorporate in case of a server or an app failure.
+                    </p>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <a class="btn btn-alt-secondary" href="be_pages_generic_todo.html" target="_blank">
+                    <i class="fa fa-rocket opacity-50 me-1"></i> Explore More Pages
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Page Packs -->
+
+        <!-- Feature: Powerful Layout -->
+        <div class="bg-body-extra-light">
+          <div class="content">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">03</span>
+                <h2 class="fw-bold text-center mb-2">
+                  Powerful <span class="text-primary">Layout</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  One super flexible and reusable layout.
+                </h3>
+              </div>
+              <div class="row g-6 py-2">
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="far fa-circle text-elegance me-1"></i>
+                    Unity
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Codebase’s layout is really unique, adaptive and flexible. It enables you to create all kinds of pages that look great and work seamlessly across mobile and desktop devices.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-sync text-earth me-1"></i>
+                    Reusability
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    It is the core principle we followed to create a layout that can work for different purposes with the minimum cost. That means fast and responsive layouts with limitless possibilities.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-bolt text-danger me-1"></i>
+                    Flexibility
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    It is based on various layout & UI components which work together harmoniously to help you create what you imagine. Lots of boilerplate pages to help you started are included.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 pull-b text-center overflow-hidden">
+              <div class="col-4">
+                <a class="options-container" href="be_pages_dashboard.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-layout-backend.png" alt="Backend Promo">
+                  <div class="options-overlay bg-body-extra-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Backend</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-4">
+                <a class="options-container" href="db_classic.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-layout-classic-dashboard.png" alt="Classic Dashboard Promo">
+                  <div class="options-overlay bg-body-extra-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Classic Dashboard</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-4">
+                <a class="options-container" href="be_layout_api.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-layout-api.png" alt="Layout API Promo">
+                  <div class="options-overlay bg-body-extra-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Layout</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Feature: Powerful Layout -->
+
+        <!-- Feature: Bootstrap 5 -->
+        <div class="bg-body-light">
+          <div class="content content-full">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">04</span>
+                <h2 class="fw-bold text-center mb-2">
+                  Bootstrap <span class="text-primary">5</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  Based on the most popular HTML, CSS, and JS framework.
+                </h3>
+              </div>
+              <div class="row g-6 py-2">
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-leaf text-success me-1"></i>
+                    Fresh
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-rocket text-corporate me-1"></i>
+                    Features
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-code text-warning me-1"></i>
+                    No jQuery
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Bootstrap 5 and Codebase are designed to be used without jQuery. It is only used for providing examples of popular plugins which are based on it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 pull-b text-center overflow-hidden">
+              <div class="col-4">
+                <a class="options-container" href="be_ui_grid.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-bootstrap-grid.png" alt="Bootstrap 5 Grid Promo">
+                  <div class="options-overlay bg-body-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Grid</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-4">
+                <a class="options-container" href="be_ui_typography.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-bootstrap-typography.png" alt="Bootstrap 5 Typography Promo">
+                  <div class="options-overlay bg-body-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Typography</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-4">
+                <a class="options-container" href="be_ui_buttons.html" target="_blank">
+                  <img class="img-fluid options-item" src="assets/media/various/landing-promo-bootstrap-buttons.png" alt="Bootstrap 5 Buttons Promo">
+                  <div class="options-overlay bg-body-light">
+                    <div class="options-overlay-content">
+                      <h3 class="h5 fw-bold text-uppercase mb-1">
+                        Explore <span class="text-primary">Buttons</span>
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Feature: Bootstrap 5 -->
+
+        <!-- Feature: Smart Tools -->
+        <div class="bg-body-extra-light">
+          <div class="content content-full">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">05</span>
+                <h2 class="fw-bold text-center mb-2">
+                  Smart <span class="text-primary">Tools</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  Make your life easier and work more efficiently.
+                </h3>
+              </div>
+              <div class="row g-6 py-2">
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i  class="fa fa-cogs text-elegance me-1"></i>
+                    Preprocessor
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Codebase CSS framework was built with Sass following a completely modular approach. It is easy to understand, customize and extend to fulfill your needs or project’s requirements.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i  class="fa fa-terminal text-info me-1"></i>
+                    Live Tasks
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Smart tasks will serve your project, auto refresh on file changes, live compile your ES6 to ES5 and Sass to CSS while you work (also auto adding any required browser prefixes).
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i  class="far fa-dot-circle text-danger me-1"></i>
+                    Build
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Time-saving task that will build a custom, minimized and production ready Codebase framework for you. Create your own variation based on your project.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 justify-content-center pull-b text-center overflow-hidden">
+              <div class="col-sm-6">
+                <img class="img-fluid" src="assets/media/various/landing-promo-smart-tools.png" alt="Smart Tools Promo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Feature: Smart Tools -->
+
+        <!-- Feature: Developer Minded -->
+        <div class="bg-body-light">
+          <div class="content content-full">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">06</span>
+                <h2 class="fw-bold text-center mb-2">
+                  Developer <span class="text-primary">Minded</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  We built Codebase based on your valuable feedback.
+                </h3>
+              </div>
+              <div class="row g-6  py-2">
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-bullhorn text-danger me-1"></i>
+                    Feedback
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    We get to know you better by continuously listening to your feedback. This way, we learn where to focus our efforts and build/improve quality products to better match your needs.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-book text-info me-1"></i>
+                    Documentation
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    In the package, you will find the Codebase Docs which can become a valuable tool in getting familiar with the overall structure and helping you start your project faster.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-code text-elegance me-1"></i>
+                    Clean Code
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    Working with someone else’s code can become uncomfortable and make you unproductive. We strive to ensure that your experience with Codebase will be the exact opposite.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 pull-b text-center overflow-hidden">
+              <div class="col-4">
+                <img class="img-fluid" src="assets/media/various/landing-promo-developer-minded-php.png" alt="Developer Minded PHP Promo">
+              </div>
+              <div class="col-4">
+                <img class="img-fluid" src="assets/media/various/landing-promo-developer-minded-docs.png" alt="Developer Minded Docs Promo">
+              </div>
+              <div class="col-4">
+                <img class="img-fluid" src="assets/media/various/landing-promo-developer-minded-html.png" alt="Developer Minded HTML Promo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Feature: Developer Minded -->
+
+        <!-- Feature: Handcrafted Design -->
+        <div class="bg-body-extra-light">
+          <div class="content content-full">
+            <div class="pt-7 pb-5">
+              <div class="position-relative">
+                <span class="text-back">07</span>
+                <h2 class="fw-bold text-center mb-2">
+                  Handcrafted <span class="text-primary">Design</span>
+                </h2>
+                <h3 class="h4 fw-medium text-muted text-center mb-5">
+                  It’s not only about quantity, it’s about quality first and foremost.
+                </h3>
+              </div>
+              <div class="row g-6 py-2">
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-heart text-pulse me-1"></i>
+                    Passion
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    We are passionate with what we do and love crafting products that can make your life easier and help you succeed. We pay attention to small details and always aiming for the best.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="fa fa-compress text-corporate me-1"></i>
+                    Commitment
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    We are committed to our work and stand by our projects. Our aim is to improve them in every update and offer the most full-featured packages with the smallest possible footprint.
+                  </p>
+                </div>
+                <div class="col-md-4 py-3">
+                  <h4 class="fw-bold mb-2">
+                    <i class="far fa-circle text-gray me-1"></i>
+                    Less is More
+                  </h4>
+                  <p class="fw-medium text-muted mb-0">
+                    We believe that design should be invisible and enhance the user experience, not get in the way. This gives room for your content to breath and attracts your users’ attention to the right place.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row text-center push">
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-pulse-lighter mb-3">
+                  <i class="si si-heart text-pulse"></i>
+                </div>
+                <div class="fw-semibold">Passion</div>
+              </div>
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-elegance-lighter mb-3">
+                  <i class="si si-chemistry text-elegance"></i>
+                </div>
+                <div class="fw-semibold">Creativity</div>
+              </div>
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-default-lighter mb-3">
+                  <i class="si si-vector text-default"></i>
+                </div>
+                <div class="fw-semibold">Design</div>
+              </div>
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-warning-light mb-3">
+                  <i class="si si-badge text-warning"></i>
+                </div>
+                <div class="fw-semibold">Quality</div>
+              </div>
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-pulse-lighter mb-3">
+                  <i class="si si-energy text-pulse"></i>
+                </div>
+                <div class="fw-semibold">Simplicity</div>
+              </div>
+              <div class="col-4 col-md-2 py-4">
+                <div class="item item-circle mx-auto bg-success-light mb-3">
+                  <i class="si si-compass text-success"></i>
+                </div>
+                <div class="fw-semibold">Motivation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Feature: Handcrafted Design -->
+
+        <!-- Features -->
+        <div class="position-relative bg-body-extra-light">
+          <div class="position-absolute top-0 end-0 bottom-0 start-0 bg-body-light -skew-y-1"></div>
+          <div class="position-relative">
+            <div class="content content-full">
+              <div class="pt-7 pb-5">
+                <div class="position-relative">
+                  <span class="text-back">Explore it</span>
+                  <h2 class="fw-bold text-center mb-2">
+                    Feature <span class="text-primary">Rich</span>
+                  </h2>
+                  <h3 class="h4 fw-medium text-muted text-center mb-5">
+                    Extra care and thought were put into each and every one.
+                  </h3>
+                </div>
+                <div class="row g-4 py-2">
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      HTML5 &amp; CSS3
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Using the latest technologies, following the best practices. W3C valid code.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Fully Responsive
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      User Interface auto adjusts and looks great to any screen size.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Retina Ready
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      User Interface looks crispy clear on high resolution screens.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Cross Browser Support
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      It plays nice with all modern browsers including Chrome, Edge, Firefox, Opera and Safari.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Fast &amp; Lightweight
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      It is created to be as fast and lightweight as possible. You can use only what you need.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Custom JS APIs
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Powerful JavaScript APIs are included. Layout or blocks manipulation is just a JS call away.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Get Started Pages
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Simple empty boilerplate pages to help you rocket start your project.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      HTML Version
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      The generic and abstract version which can be used with any framework or language.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      PHP Version
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      A PHP version is included to assist you with your custom PHP project.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      RTL Support
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Boilerplate RTL pages are also included in 'Get Started' section providing a great starting point.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Components
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Carefully picked and integrated to enhance and enrich your project with great functionality.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      6 Inspiring Color Themes
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Carefully chosen and integrated color themes to choose from for your website/dashboard.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      1900+ Font Based Icons
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      With so many unique icons included in Codebase, you don’t have to worry about running out.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Super-Fast UI
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      GPU powered sidebar animations and smart CSS styles will ensure a great experience.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Flexible Side Areas
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Multiple available layouts and completely adjustable by using the powerful layout API.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Designed Pages
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      All kinds of pages, carefully designed, to get inspired and create your own.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Gulp Tasks
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Time-saving tasks that will be a valuable tool to your workflow.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Easy Updating
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      Updating a template can be hard but if you follow the instructions you will be just a copy-paste away.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Free Updates
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      All updates are free for existing customers to download. Great new features at no extra cost.
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3">
+                    <h4 class="h5 fw-bold mb-2">
+                      Support
+                    </h4>
+                    <p class="fs-sm fw-medium text-muted mb-0">
+                      By purchasing a license, you are eligible to email support. We are here to help!
+                    </p>
+                  </div>
+                  <div class="col-md-4 py-3 text-center text-md-start">
+                    <h4 class="h5 fw-bold mb-2">
+                      Many Many More..
+                    </h4>
+                    <a class="btn btn-sm btn-alt-primary" href="be_pages_dashboard.html" target="_blank">
+                      <i class="fa fa-external-link-square-alt opacity-50 me-1"></i> Explore Codebase
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Features -->
+
+        <!-- Call to Action -->
+        <div class="bg-body-extra-light">
+          <div class="content content-full text-center overflow-hidden">
+            <div class="py-7">
+              <h2 class="fw-bold mb-2">
+                Crafted with <i class="fa fa-heart text-danger"></i> by <a class="link-fx" href="https://1.envato.market/ydb">pixelcave</a>
+              </h2>
+              <h3 class="h4 fw-medium text-muted mb-5">
+                Passionate web design and development with over 15,000 customers worldwide.
+              </h3>
+              <a class="btn btn-lg btn-alt-success mb-2 py-3 px-4" href="https://1.envato.market/95j">
+                <i class="fa fa-shopping-bag opacity-50 me-2"></i> Purchase Codebase
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- END Call to Action -->
+
+        <!-- Footer -->
+        <footer id="page-footer" class="bg-body-light">
+          <div class="content py-5">
+            <div class="row fs-sm">
+              <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                Crafted with <i class="fa fa-heart text-pulse"></i> by <a class="fw-semibold" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
+              </div>
+              <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                <a class="fw-semibold" href="https://1.envato.market/95j" target="_blank">Codebase 5.3</a> &copy; <span data-toggle="year-copy"></span>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- END Footer -->
+      </main>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
+    <!--
+        Codebase JS
+    
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="assets/js/codebase.app.min.js"></script>
+  </body>
 </html>

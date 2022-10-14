@@ -30,3 +30,4 @@ class CreateRoleUsersTable extends Migration
         Schema::dropIfExists('role_users');
     }
 }
+

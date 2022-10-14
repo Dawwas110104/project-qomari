@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\User;    
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -12,9 +14,23 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('user.index');
+        // $users = User::all();
+        // return $users;
+        $keyword = $request->keyword;
+        $users = User::where('name', 'LIKE', '%' . $keyword . '%')
+                ->sortable()
+                ->paginate(3);
+        
+        $users->appends($request->all());
+
+        // return $users;
+
+        return view('pages.pengguna.index', compact(
+            'users',
+            'keyword',
+        )); 
     }
 
     /**
@@ -24,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pengguna.tambah');
     }
 
     /**
@@ -40,13 +56,14 @@ class UserController extends Controller
         User::create([
             'role_id' => $request->role_id,
             'name' => $request->name,
-            'usia' => $request->usia,
-            'alamat' => $request->alamat,
-            'kec_domisili' => $request->kec_domisili,
-            'nomor_kk' => $request->nomor_kk,
+            'no_telpon' => $request->no_telpon,
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
         ]);
-    }
 
+        return redirect()->back();
+    }
+    
     /**
      * Display the specified resource.
      *
@@ -66,7 +83,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+
+        return view('pages.pengguna.edit', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -78,7 +99,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::where('id', $id)->update([
+            'name' => $request->name,
+            'no_telpon' => $request->no_telpon,
+            'email' => $request->email,
+        ]); 
+
+        return redirect()->route('pengguna.index');
     }
 
     /**
@@ -89,6 +116,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user->delete();
+
+        return redirect()->route('pengguna.index');
     }
 }
