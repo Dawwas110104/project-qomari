@@ -49,7 +49,13 @@ class PenerimaDonasiController extends Controller
      */
     public function create()
     {
-        //
+        $kec_domisilis = master_district::where('regency_id', 3578)
+                ->orderBy('name', 'asc')
+                ->get();
+
+        return view('pages.penerimadonasi.tambah', compact([
+            'kec_domisilis'
+        ]));
     }
 
     /**
@@ -114,7 +120,7 @@ class PenerimaDonasiController extends Controller
     public function edit($id)
     {
         $data = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
-        ->select('penerima_donasis.*', 'master_districts.name as districts_name')
+        ->select('penerima_donasis.*', 'master_districts.name as districts_name', 'master_districts.id as districts_id')
         ->where('penerima_donasis.id', $id)
         ->first();
 

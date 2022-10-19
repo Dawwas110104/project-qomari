@@ -55,14 +55,14 @@
                         <td class="text-center">
                             <div class="btn-group">
                                 
-                                <button class="btn btn-sm btn-secondary" title="Edit">
+                                <button class="btn btn-sm btn-secondary">
                                 <a href="{{ route('pengguna.edit', $user->id) }}" style="color: #fff;">
                                     <i class="fa fa-pencil-alt"></i>
                                 </a>
                                 </button>
 
                                 
-                                <button class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" title="Delete">
+                                <button class="btn btn-sm btn-secondary" data-bs-toggle="tooltip">
                                 <a href="{{ route('pengguna.destroy', $user->id) }}" onclick="event.preventDefault();
                                                 document.getElementById('{{ $user->id }}').submit();" style="color: #fff;">
                                     <i class="fa fa-times"></i>
