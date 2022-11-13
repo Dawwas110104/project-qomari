@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\PenerimaDonasi;
+use Carbon\Carbon;
 
 class DonaturController extends Controller
 {
@@ -97,7 +98,8 @@ class DonaturController extends Controller
         $datas->appends($request->all());
 
         return view('pages.donatur.penerimadonasi', compact(
-            'datas'
+            'datas',
+            'keyword'
         ));
     }
     
@@ -122,17 +124,21 @@ class DonaturController extends Controller
         return redirect()->back();
     }
 
-    public function anakAsuh()
+    public function anakAsuh(Request $request)
     {
+        $keyword = $request->keyword;
         $donatur_id = Auth::user()->id;
         
         $datas = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
                 ->select('penerima_donasis.*', 'master_districts.name as districts_name')
                 ->where('penerima_donasis.donatur_id', $donatur_id)
-                ->get();
+                ->where('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
+                ->sortable()
+                ->paginate(3);;
         
         return view('pages.donatur.anakasuh', compact(
             'datas',
+            'keyword'
         ));
     }
 

@@ -193,8 +193,9 @@
                 </li>
                 @endif
                 
-                <li class="nav-main-heading">User Interface</li>
+                
                 @if(Auth::user()->role_id == 1)
+                <li class="nav-main-heading">Donatur</li>
                 <li class="nav-main-item">
                   <a class="nav-main-link" href="{{ route('pengguna.index') }}">
                     <i class="nav-main-link-icon fa fa-user-tie"></i>
@@ -202,31 +203,45 @@
                   </a>
                 </li>
 
+                <li class="nav-main-heading">Anak Yatim</li>
                 <li class="nav-main-item">
                   <a class="nav-main-link" href="{{ route('penerimadonasi.index') }}">
                     <i class="nav-main-link-icon fa fa-children"></i>
                     <span class="nav-main-link-name">Anak Yatim</span>
                   </a>
                 </li>
+                @else
+                <li class="nav-main-heading">Data Anak Asuh</li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                    <span class="nav-main-link-name">Anak Asuh</span>
+                  </a>
+                </li>
 
+                <li class="nav-main-heading">Data Anak Yatim</li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                    <span class="nav-main-link-name">Anak Yatim</span>
+                  </a>
+                </li>
+                @endif
+                
+                @if(Auth::user()->role_id == 1)
+                <li class="nav-main-heading">Transaksi</li>
+                
                 <li class="nav-main-item">
                   <a class="nav-main-link" href="{{ route('transaksi.index') }}">
                     <i class="nav-main-link-icon fa fa-money-bill-transfer"></i>
                     <span class="nav-main-link-name">Transaksi</span>
                   </a>
                 </li>
-                @else
-                <li class="nav-main-item">
-                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                    <span class="nav-main-link-name">Data Anak Asuh</span>
-                  </a>
-                </li>
 
                 <li class="nav-main-item">
-                  <a class="nav-main-link" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                    <span class="nav-main-link-name">Data Penerima Donasi</span>
+                  <a class="nav-main-link" href="{{ route('transaksi.create') }}">
+                    <i class="nav-main-link-icon fa fa-money-bill-transfer"></i>
+                    <span class="nav-main-link-name">Buat Tagihan Transaksi</span>
                   </a>
                 </li>
                 @endif

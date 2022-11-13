@@ -19,7 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('pd_id');
             $table->string('bulan');
             $table->integer('nominal');
-            $table->string('bukti_tf');
+            $table->string('bukti_tf')->nullable();
             $table->integer('status');
             $table->timestamps();
         });

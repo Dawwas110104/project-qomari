@@ -7,6 +7,7 @@ use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenerimaDonasiController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SubscriberController;
  
 
 /*
@@ -49,7 +50,24 @@ Route::middleware(['admin'])->group(function () {
     ]);
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/penerimadonasi/{id}/detail', [PenerimaDonasiController::class, 'detail'])->name('penerimadonasi.detail');
+    Route::get('/transaksi/email', [TransaksiController::class, 'email'])->name('transaksi.email');
+    Route::get('/transaksi/coba', [TransaksiController::class, 'coba'])->name('transaksi.coba');
+    Route::get('/transaksi/{id}/detail', [TransaksiController::class, 'detail'])->name('transaksi.detail');
+    Route::post('/transaksi/{id}/terima', [TransaksiController::class, 'terima'])->name('transaksi.terima');
+    Route::post('/transaksi/{id}/tolak', [TransaksiController::class, 'tolak'])->name('transaksi.tolak');
 });
+
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+    \Mail::to('dawwas.inha@gmail.com')->send(new \App\Mail\MyTestMail($details));
+   
+    dd("Email is Sent.");
+})->name('send-email');
 
 
 

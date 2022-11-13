@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-sm-8 ms-auto">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Tambah') }}
+                                {{ __('Perbarui') }}
                             </button>
                         </div>
                     </form>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
 use App\Models\PenerimaDonasi;
+use App\Models\transaksi;
 use App\Models\master_district;
 use Carbon\Carbon;
 
@@ -28,7 +29,6 @@ class PenerimaDonasiController extends Controller
                 ->orWhere('master_districts.name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
                 ->paginate(3);
-
         $datas->appends($request->all());
 
         $kec_domisilis = master_district::where('regency_id', 3578)
@@ -150,7 +150,7 @@ class PenerimaDonasiController extends Controller
             'kec_domisili' => $request->kec_domisili
         ]);
 
-        return redirect()->route('penerimadonasi.index');
+        return redirect()->back();
     }
 
     /**
@@ -173,9 +173,16 @@ class PenerimaDonasiController extends Controller
         ->select('penerima_donasis.*', 'master_districts.name as districts_name')
         ->where('penerima_donasis.id', $id)
         ->first();
-        
+
+        $transaksis = transaksi::where('pd_id', $id)
+                ->join('users', 'transaksis.donatur_id', '=', 'users.id')
+                ->join('penerima_donasis', 'transaksis.pd_id', '=', 'penerima_donasis.id')
+                ->select('transaksis.*', 'users.name as donatur_name', 'penerima_donasis.name as penerimadonasi_name')
+                ->get();
+
         return view('pages.penerimadonasi.detail', compact(
-            'data'
+            'data',
+            'transaksis'
         ));
     }
 }
