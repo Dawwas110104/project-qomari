@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -34,12 +34,10 @@
                     </table>
                 </div>
             </div>
-            <!-- {{ $datas->links() }} -->
-            <!-- {!! $datas->appends(Request::except('page'))->render() !!} -->
             {!! $datas !!}
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="block block-rounded">
     <div class="block-content">
@@ -80,7 +78,7 @@
                     <td>{{ $data->districts_name }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('donatur.anakasuh-detail', $data->id) }}" style="color: #fff;">
+                            <a href="{{ route('donatur.detail', $data->id) }}" style="color: #fff;">
                                 <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
                                     <i class="si si-info"></i>
                                 </button>

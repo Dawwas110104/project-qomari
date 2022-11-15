@@ -90,7 +90,8 @@ class DonaturController extends Controller
         $keyword = $request->keyword;
         $datas = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
                 ->select('penerima_donasis.*', 'master_districts.name as districts_name')
-                ->where('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
+                ->where('penerima_donasis.donatur_id', NULL)
+                ->orWhere('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
                 ->orWhere('master_districts.name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
                 ->paginate(3);

@@ -70,30 +70,38 @@
                 <div class="col-lg-8">
                     <div class="block block-rounded h-100 mb-0">
                         <div class="block-header block-header-default">
-                        <h3 class="block-title">Informasi  Donasi</h3>
+                            <h3 class="block-title">Informasi  Donasi</h3>
                         </div>
                         <div class="block-content">
-                        <table class="table table-borderless table-striped">
-                            <tbody>
-                                @foreach($transaksis as $transaksi)
-                                <tr>
-                                    <td>
-                                        <a class="fw-semibold" href="be_pages_ecom_order.html">Donasi</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success">Berhasil</span>
-                                    </td>
-                                    <td class="d-none d-sm-table-cell">
-                                        {{ $transaksi->updated_at }}                 
-                                    </td>
-                                    <td class="d-none d-sm-table-cell">
-                                        <a href="be_pages_ecom_customer.html">{{ $transaksi->donatur_name }}</a>
-                                    </td>
-                                    <td class="text-end">Rp{{ $transaksi->nominal }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                            <table class="table table-borderless table-striped">
+                                <tbody>
+                                    @if(empty($data->donatur_id) )
+                                        <tr>
+                                            <td>
+                                                Belum ada donatur
+                                            </td>
+                                        </tr>
+                                    @else
+                                        @foreach($transaksis as $transaksi)
+                                        <tr>
+                                            <td>
+                                                <a class="fw-semibold" href="be_pages_ecom_order.html">Donasi</a>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-success">Berhasil</span>
+                                            </td>
+                                            <td class="d-none d-sm-table-cell">
+                                                {{ $transaksi->updated_at }}                 
+                                            </td>
+                                            <td class="d-none d-sm-table-cell">
+                                                <a href="be_pages_ecom_customer.html">{{ $transaksi->donatur_name }}</a>
+                                            </td>
+                                            <td class="text-end">Rp{{ $transaksi->nominal }}</td>
+                                        </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
