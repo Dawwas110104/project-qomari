@@ -71,26 +71,34 @@
                         <td class="text-center">
                             <div class="btn-group">
                             @if($data->bukti_tf  == NULL)
-                                 
-                            @else
-                                <a href="{{ route('transaksi.detail', $data->id) }}" style="color: #fff;">
-                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
-                                        <i class="si si-info"></i>
-                                    </button>
-                                </a>
-                            @endif
                                 <a href="{{ route('transaksi.destroy', $data->id) }}" onclick="event.preventDefault();
                                                 document.getElementById('{{ $data->id }}').submit();" style="color: #fff;">
                                     <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
                                         <i class="fa fa-times"></i>
                                     </button>
-                                </a>                                
-                                
+                                </a>
+                            @else
+                                @if($data->status == 1)
 
+                                @else
+                                <a href="{{ route('transaksi.detail', $data->id) }}" style="color: #fff;">
+                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
+                                        <i class="si si-info"></i>
+                                    </button>
+                                </a>
+                                <a href="{{ route('transaksi.destroy', $data->id) }}" onclick="event.preventDefault();
+                                                document.getElementById('{{ $data->id }}').submit();" style="color: #fff;">
+                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </a>
                                 <form id="{{ $data->id }}" action="{{ route('transaksi.destroy', $data->id ) }}" method="POST" class="d-none">
                                     @csrf
                                     @method('DELETE')
                                 </form>
+                                @endif
+                            @endif
+                                
                             </div>
                         </td>
                     </tr>

@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
         return view('pages.admin.index');
     }
+
+    public function email()
+    {
+        return view('emails.message');
+    }
 }

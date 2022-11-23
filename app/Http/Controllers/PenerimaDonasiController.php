@@ -174,7 +174,9 @@ class PenerimaDonasiController extends Controller
         ->where('penerima_donasis.id', $id)
         ->first();
 
+
         $transaksis = transaksi::where('pd_id', $id)
+                ->where('status', 1)
                 ->join('users', 'transaksis.donatur_id', '=', 'users.id')
                 ->join('penerima_donasis', 'transaksis.pd_id', '=', 'penerima_donasis.id')
                 ->select('transaksis.*', 'users.name as donatur_name', 'penerima_donasis.name as penerimadonasi_name')

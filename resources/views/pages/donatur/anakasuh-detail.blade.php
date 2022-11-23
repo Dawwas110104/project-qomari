@@ -1,62 +1,107 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    {{ $data->name }}
-                </div>
+<main id="main-container">
+    <!-- Page Content -->
+    <!-- User Info -->
+    <div class="bg-image bg-image-bottom" style="background-image: url('{{ asset('assets/media/photos/photos13.jpg') }}');">
+        <div class="bg-primary-dark-op py-4">
+        <div class="content content-full text-center">
+            <!-- Avatar -->
+            <div class="mb-3">
+            <a class="img-link" href="#">
+                <img class="img-avatar img-avatar96 img-avatar-thumb" src="{{ asset('assets/media/avatars/avatar15.jpg') }}" alt="">
+            </a>
+            </div>
+            <!-- END Avatar -->
 
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Usia</th>
-                                <th>Alamat</th>
-                                <th>Kecamatan Domisili</th>
-                                <th>Akta Kematian Ibu</th>
-                                <th>Akta Kematian Bapak</th>
-                                <th>Nomor Rekening</th>
-                                <th>Anak Asuh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->usia() }}</td>
-                                <td>{{ $data->alamat }}</td>
-                                <td>{{ $data->districts_name }}</td>
-                                <td>
-                                    <img src="{{ asset('akta_kematian_ibu/'.$data->akta_kematian_ibu) }}" style="width: 150px; height:150px;">
-                                </td>
-                                <td>
-                                    <img src="{{ asset('akta_kematian_bapak/'.$data->akta_kematian_bapak) }}" style="width: 150px; height:150px;">
-                                </td>
-                                <td>{{ $data->rekening_bank }}</td>
-                                <td>
-                                    @if($data->donatur_id == Auth::user()->id)
-                                    <button type="button" class="btn btn-sm btn-success"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                    @else
-                                    <form method="POST" action="{{ route('donatur.tambah-anak-asuh') }}">
-                                        @csrf
-                                        <input type="hidden" name="donatur_id" value="{{ Auth::user()->id }}">
-                                        <input type="hidden" name="id" value="{{ $data->id }}">
-                                        <button type="submit" class="btn btn-sm btn-primary">Tambah Anak Asuh</button>
-                                    </form><br>
-                                    @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Personal -->
+            <h1 class="h3 text-white fw-bold mb-2">
+            {{ $data->name }}
+            </h1>
+            <a class="btn btn-alt-primary" href="{{ route('penerimadonasi.edit', $data->id) }}">
+            <i class="fa fa-fw fa-pencil-alt opacity-50 mb-1"></i> Edit
+            </a>
+            <!-- END Actions -->
+        </div>
+        </div>
+    </div>
+    <!-- END User Info -->
+
+    <h2 class="content-heading d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="si si-users me-1"></i> Data Pribadi</span>
+    </h2>
+    <!-- Addresses -->
+    <div class="row items-push">
+        <!-- Billing Address -->
+        <div class="col-lg-4">
+            <div class="block block-rounded h-100 mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Informasi Biodata</h3>
+                </div>
+                <div class="block-content fs-sm">
+                    <div class="fw-bold mb-1">{{ $data->name }}</div>
+                    <address>
+                        {{ $data->tanggal_lahir }} ({{ $data->usia() }} Tahun)<br>
+                        {{ $data->alamat }}<br>
+                        {{ $data->districts_name }}<br><br>
+                    </address>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <!-- END Billing Address -->
 
+        <!-- Shipping Address -->
+        <div class="col-lg-8">
+            <div class="block block-rounded h-100 mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Informasi  Donasi</h3>
+                </div>
+                <div class="block-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-vcenter">
+                            <tbody>
+                                @foreach($transaksis as $transaksi)
+                                <div id="accordion2" role="tablist" aria-multiselectable="true">
+                                    <div class="block block-bordered block-rounded mb-2">
+                                        <a class="fw-semibold block-header" data-bs-toggle="collapse" data-bs-parent="#accordion2" href="#accordion2_q{{ $transaksi->id }}" aria-expanded="true" aria-controls="accordion2_q{{ $transaksi->id }}" role="tab" id="accordion2_h1">
+                                            <div class="block-options" style="padding: 0!important;">{{ $transaksi->bulan }}</div>
+                                            <div class="block-options">
+                                                <div class="block-options-item">
+                                                    @if($transaksi->status)
+                                                    <div class="alert alert-success py-2 mb-0">
+                                                        <i class="fa fa-check-circle opacity-50 me-1"></i>
+                                                    </div>
+                                                    @else
+                                                    <div class="alert alert-warning py-2 mb-0">
+                                                        <i class="fa fa-exclamation-triangle opacity-50 me-1"></i>
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div id="accordion2_q{{ $transaksi->id }}" class="collapse" role="tabpanel" aria-labelledby="accordion2_h1">
+                                            <div class="block-content">
+                                                @if($transaksi->status)
+                                                <p>Uang infaq diterima sebesar {{ $transaksi->nominal }} pada {{ $transaksi->updated_at }}</p>
+                                                @else
+                                                <p>Uang infaq sebesar {{ $transaksi->nominal }} belum diserahkan</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Shipping Address -->
+    </div>
+    <!-- END Addresses -->
+</main>
 @endsection
 
 @section('script')

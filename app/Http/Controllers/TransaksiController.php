@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\transaksi;
 use App\Models\User;
 use App\Models\PenerimaDonasi;
+use Illuminate\Database\Console\DbCommand;
+use Illuminate\Support\Facades\DB as FacadesDB;
+use Illuminate\Support\Facades\Mail;
 
 class TransaksiController extends Controller
 {
@@ -62,10 +65,16 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        $data = transaksi::join('penerima_donasis', 'penerima_donasis.id', '=', 'transaksis.pd_id')
-                ->select('penerima_donasis.*')
-                ->first();
+        $data = PenerimaDonasi::where('id', $request->pd_id)->first();
         $donatur = User::where('id', $request->donatur_id)->first();
+
+        $template = FacadesDB::table('email_template')->first()->template;
+        $template = str_replace("{donatur}", $donatur->name, $template);
+        $template = str_replace("{telp}", $donatur->no_telpon, $template);
+        $template = str_replace("{email}", $donatur->email, $template);
+        $template = str_replace("{anak}", $data->name, $template);
+        $template = str_replace("{bulan}", $request->bulan, $template);
+        $template = str_replace("{nominal}", $request->nominal, $template);
 
         transaksi::create([
             'donatur_id' => $request->donatur_id,
@@ -78,13 +87,13 @@ class TransaksiController extends Controller
         $details = [
             'title' => 'Mail from Anak Yatim Platform',
             'body' => 'Penagihan uang infaq untuk',
-            'anak_yatim' => $data->name,
-            'bulan' => $request->bulan,
+            'message' => $template,
         ];
 
-        // return $details;
 
-        \Mail::to($donatur->email)->send(new \App\Mail\MyTestMail($details));
+        // return view('emails.myTestMail', ['data' => $details]);
+
+        Mail::to($donatur->email)->send(new \App\Mail\MyTestMail($details));
 
         return redirect()->route('transaksi.index');
     }
@@ -188,8 +197,27 @@ class TransaksiController extends Controller
             'body' => 'This is for testing email using smtp'
         ];
        
-        \Mail::to('dawwas.inha@gmail.com')->send(new \App\Mail\MyTestMail($details));
+        Mail::to('dawwas.inha@gmail.com')->send(new \App\Mail\MyTestMail($details));
        
         dd("Email is Sent.");
+    }
+
+    public function template()
+    {
+        $template = FacadesDB::table('email_template')->first()->template;
+
+        // return $template;
+        return view('pages.transaksi.template', compact(
+            'template'
+        ));
+    }
+
+    public function templateUpdate(Request $request)
+    {
+        FacadesDB::table('email_template')->update([
+            'template' => $request->template,
+        ]);
+
+        return redirect()->back();
     }
 }

@@ -25,22 +25,30 @@
                 <th class="text-center" style="width: 100px;">
                 <i class="fa fa-user"></i>
                 </th>
-                <th>@sortablelink('name', 'Nama')</th>
-                <th style="width: 30%; text-align: center;">@sortablelink('tanggal_lahir', 'Usia')</th>
-                <th style="width: 30%;">@sortablelink('kec_domisili', 'Kecamatan Domisili')</th>
+                <th>@sortablelink('name', 'Nama Anak Asuh')</th>
+                <th style="text-align: center;">@sortablelink('bulan', 'Bulan')</th>
+                <th>@sortablelink('nominal', 'Nominal')</th>
+                <th>@sortablelink('status', 'Status')</th>
                 <th class="text-center" style="width: 100px;">Aksi</th>
             </tr>
             </thead>
             <tbody>
-                @foreach($datas as $data)
+                @foreach($transaksis as $transaksi)
                 <tr>
                     <td class="text-center"><img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt=""></td>
-                    <td class="fw-semibold">{{ $data->name }}</td>
-                    <td style="text-align: center;">{{ $data->usia() }} Tahun</td>
-                    <td>{{ $data->districts_name }}</td>
+                    <td class="fw-semibold">{{ $transaksi->name }}</td>
+                    <td style="text-align: center;">{{ $transaksi->bulan }}</td>
+                    <td>{{ $transaksi->nominal }}</td>
+                    <td>
+                        @if($transaksi->status == 1)
+                            <span class="badge rounded-pill bg-success">Berhasil</span>
+                        @else
+                            <span class="badge rounded-pill bg-warning">Pengajuan</span>
+                        @endif  
+                    </td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('donatur.anakasuh-detail', $data->id) }}" style="color: #fff;">
+                            <a href="{{ route('donatur.anakasuh-detail', $transaksi->id) }}" style="color: #fff;">
                                 <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
                                     <i class="si si-info"></i>
                                 </button>
@@ -52,7 +60,7 @@
             </tbody>
         </table>
 
-        {{ $datas->links() }}
+        {{ $transaksis->links() }}
         </div>
     </div>
 </div>

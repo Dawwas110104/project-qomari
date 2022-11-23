@@ -38,7 +38,7 @@
                                         <td class="pe-0 fw-bold text-end">{{ $data->bulan }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="ps-0 fw-medium">Bulan</td>
+                                        <td class="ps-0 fw-medium">Nominal</td>
                                         <td class="pe-0 fw-bold text-end">{{ $data->nominal }}</td>
                                     </tr>
                                 </tbody>

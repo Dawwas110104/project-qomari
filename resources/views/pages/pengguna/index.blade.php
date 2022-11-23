@@ -1,34 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="content-heading">
-        <div>Daftar Donatur</div>
-    </h2>
+<h2 class="content-heading">
+    <div>Daftar Donatur</div>
+</h2>
 
-    <!-- Full Table -->
-    <div class="block block-rounded">
-        <div class="block-content">
-            <div class="content-header">
-                <div class="space-x-1">
-                    <form class="row g-3 align-items-center" method="GET" action="{{ route('pengguna.index') }}">
-                        <div class="col-10">
-                            <label class="visually-hidden" for="keyword">Email</label>
-                            <input class="form-control" type="text" name="keyword" value="{{ $keyword }}">
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-magnifying-glass"></i></button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="space-x-1">
-                    <a class="align-items-center" href="{{ route('pengguna.create') }}" style="color: #fff;"><button class="btn btn-primary">+</button></a>
-                </div>
+<!-- Full Table -->
+<div class="block block-rounded">
+    <div class="block-content">
+        <div class="content-header">
+            <div class="space-x-1">
+                <form class="row g-3 align-items-center" method="GET" action="{{ route('pengguna.index') }}">
+                    <div class="col-10">
+                        <label class="visually-hidden" for="keyword">Email</label>
+                        <input class="form-control" type="text" name="keyword" value="{{ $keyword }}">
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
             </div>
-            
 
-            <div class="table-responsive">
+            <div class="space-x-1">
+                <a class="align-items-center" href="{{ route('pengguna.create') }}" style="color: #fff;"><button class="btn btn-primary">+</button></a>
+            </div>
+        </div>
+        
+
+        <div class="table-responsive">
             <table class="table table-striped table-vcenter">
                 <thead>
                 <tr>
@@ -55,19 +54,18 @@
                         <td class="text-center">
                             <div class="btn-group">
                                 
-                                <button class="btn btn-sm btn-secondary">
                                 <a href="{{ route('pengguna.edit', $user->id) }}" style="color: #fff;">
-                                    <i class="fa fa-pencil-alt"></i>
+                                    <button class="btn btn-sm btn-secondary">
+                                        <i class="fa fa-pencil-alt"></i>                                  
+                                    </button>
                                 </a>
-                                </button>
 
-                                
-                                <button class="btn btn-sm btn-secondary" data-bs-toggle="tooltip">
                                 <a href="{{ route('pengguna.destroy', $user->id) }}" onclick="event.preventDefault();
                                                 document.getElementById('{{ $user->id }}').submit();" style="color: #fff;">
-                                    <i class="fa fa-times"></i>
+                                    <button class="btn btn-sm btn-secondary" data-bs-toggle="tooltip">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </a>
-                                </button>
                                 
 
                                 <form id="{{ $user->id }}" action="{{ route('pengguna.destroy', $user->id ) }}" method="POST" class="d-none">
@@ -80,13 +78,11 @@
                     @endforeach
                 </tbody>
             </table>
-
-            {{ $users->links() }}
-            </div>
+        {{ $users->links() }}
         </div>
     </div>
-    <!-- END Full Table -->
 </div>
+<!-- END Full Table -->
 @endsection
 
 @section('script')

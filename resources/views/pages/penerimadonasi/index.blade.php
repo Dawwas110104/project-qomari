@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <h2 class="content-heading">
         <div>Daftar Anak Yatim</div>
     </h2>
@@ -87,7 +86,6 @@
         </div>
     </div>
     <!-- END Full Table -->
-</div>
 @endsection
 
 @section('script')

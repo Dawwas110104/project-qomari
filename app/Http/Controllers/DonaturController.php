@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Authenticate;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\PenerimaDonasi;
+use App\Models\transaksi;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Auth\Middleware\Authorize;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use PharIo\Manifest\Author;
 
 class DonaturController extends Controller
 {
@@ -90,11 +96,13 @@ class DonaturController extends Controller
         $keyword = $request->keyword;
         $datas = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
                 ->select('penerima_donasis.*', 'master_districts.name as districts_name')
-                ->where('penerima_donasis.donatur_id', NULL)
+                ->whereNull('penerima_donasis.donatur_id')
                 ->orWhere('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
                 ->orWhere('master_districts.name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
                 ->paginate(3);
+
+        return dd($datas);
 
         $datas->appends($request->all());
 
@@ -128,14 +136,14 @@ class DonaturController extends Controller
     public function anakAsuh(Request $request)
     {
         $keyword = $request->keyword;
-        $donatur_id = Auth::user()->id;
+        $donatur_id = FacadesAuth::user()->id;
         
         $datas = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
                 ->select('penerima_donasis.*', 'master_districts.name as districts_name')
                 ->where('penerima_donasis.donatur_id', $donatur_id)
                 ->where('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
-                ->paginate(3);;
+                ->paginate(3);
         
         return view('pages.donatur.anakasuh', compact(
             'datas',
@@ -150,8 +158,31 @@ class DonaturController extends Controller
         ->where('penerima_donasis.id', $id)
         ->first();
 
+        $transaksis = transaksi::where('donatur_id', FacadesAuth::user()->id)->get();
+
         return view('pages.donatur.anakasuh-detail', compact(
-            'data'
+            'data',
+            'transaksis'
+        ));
+    }
+
+    public function transaksi(Request $request)
+    {
+        $keyword = $request->keyword;
+        $transaksis = transaksi::join('penerima_donasis', 'pd_id', '=', 'penerima_donasis.id')
+                    ->where('transaksis.donatur_id', FacadesAuth::user()->id)
+                    ->where('name', 'LIKE', '%' . $keyword . '%')
+                    ->where('bulan', 'LIKE', '%' . $keyword . '%')
+                    ->sortable()
+                    ->paginate(3);
+
+        // return $transaksis;
+
+        return view('pages.donatur.transaksi.transaksi', compact(
+            [
+                'transaksis',
+                'keyword'
+            ]
         ));
     }
 }
