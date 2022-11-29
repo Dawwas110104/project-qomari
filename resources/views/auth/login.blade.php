@@ -35,58 +35,6 @@
     <!-- END Stylesheets -->
   </head>
   <body>
-
-    <!-- Page Container -->
-    <!--
-      Available classes for #page-container:
-    
-      GENERIC
-    
-        'remember-theme'                            Remembers active color theme and dark mode between pages using localStorage when set through
-                                                    - Theme helper buttons [data-toggle="theme"],
-                                                    - Layout helper buttons [data-toggle="layout" data-action="dark_mode_[on/off/toggle]"]
-                                                    - ..and/or Codebase.layout('dark_mode_[on/off/toggle]')
-    
-      SIDEBAR & SIDE OVERLAY
-    
-        'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
-        'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
-        'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
-        'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
-        'sidebar-dark'                              Dark themed sidebar
-    
-        'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
-        'side-overlay-o'                            Visible Side Overlay by default
-    
-        'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
-    
-        'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
-    
-      HEADER
-    
-        ''                                          Static Header if no class is added
-        'page-header-fixed'                         Fixed Header
-    
-      HEADER STYLE
-    
-        ''                                          Classic Header style if no class is added
-        'page-header-modern'                        Modern Header style
-        'page-header-dark'                          Dark themed Header (works only with classic Header style)
-        'page-header-glass'                         Light themed Header with transparency by default
-                                                    (absolute position, perfect for light images underneath - solid light background on scroll if the Header is also set as fixed)
-        'page-header-glass page-header-dark'        Dark themed Header with transparency by default
-                                                    (absolute position, perfect for dark images underneath - solid dark background on scroll if the Header is also set as fixed)
-    
-      MAIN CONTENT LAYOUT
-    
-        ''                                          Full width Main Content if no class is added
-        'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
-        'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
-    
-      DARK MODE
-    
-        'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
-    -->
     <div id="page-container" class="main-content-boxed">
 
       <!-- Main Container -->
@@ -98,18 +46,13 @@
               <div class="content content-full overflow-hidden">
                 <!-- Header -->
                 <div class="py-4 text-center">
-                  <a class="link-fx fw-bold" href="index.html">
-                    <i class="fa fa-fire"></i>
-                    <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>
+                  <a class="link-fx fw-bold" href="#">
+                    <i class="fa fa-child-reaching"></i>
+                    <span class="fs-4 text-body-color">wali</span><span class="fs-4">yatim</span>
                   </a>
                   <h1 class="h3 fw-bold mt-4 mb-2">Welcome to Your Dashboard</h1>
                   <h2 class="h5 fw-medium text-muted mb-0">It’s a great day today!</h2>
                 </div>
-                <!-- END Header -->
-
-                <!-- Sign In Form -->
-                <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js -->
-                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
                 <form class="js-validation-signin" method="POST" action="{{ route('login') }}">
                   @csrf
                   <div class="block block-themed block-rounded block-fx-shadow">
@@ -126,13 +69,13 @@
                         <label class="form-label" for="password">Password</label>
                       </div>
                       <div class="row">
-                        <div class="col-sm-6 d-sm-flex align-items-center push">
+                        <!-- <div class="col-sm-6 d-sm-flex align-items-center push">
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me">
                             <label class="form-check-label" for="login-remember-me">Remember Me</label>
                           </div>
-                        </div>
-                        <div class="col-sm-6 text-sm-end push">
+                        </div> -->
+                        <div class="col-12 text-sm-end push">
                           <button type="submit" class="btn btn-lg btn-alt-primary fw-medium">
                             Sign In
                           </button>

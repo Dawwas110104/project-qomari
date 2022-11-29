@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>Codebase - Bootstrap 5 Admin Template &amp; UI Framework</title>
+    <title>Anak Yatim Platform</title>
 
-    <meta name="description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Anak Yatim Platform">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework">
-    <meta property="og:site_name" content="Codebase">
-    <meta property="og:description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta property="og:title" content="Anak Yatim Platform">
+    <meta property="og:description" content="Anak Yatim Platform">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
 
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Codebase framework -->
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/codebase.min.css') }}">
@@ -38,13 +38,14 @@
           <div class="content-header justify-content-lg-center">
             <!-- Logo -->
             <div>
-              <span class="smini-visible fw-bold tracking-wide fs-lg">
-                c<span class="text-primary">b</span>
+              <span class="smini-hidden fw-bold tracking-wide fs-lg">
+                <img style="height: 50px; margin-right: 15px;" src="{{ asset('assets/media/photos/bg.png') }}" alt="">
+                <!-- c<span class="text-primary">b</span> -->
               </span>
-              <a class="link-fx fw-bold tracking-wide mx-auto" href="index.html">
+              <a class="link-fx fw-bold tracking-wide mx-auto" href="#">
                 <span class="smini-hidden">
-                  <i class="fa fa-fire text-primary"></i>
-                  <span class="fs-4 text-dual">code</span><span class="fs-4 text-primary">base</span>
+                  <i class="fa fa-child-reaching text-primary"></i>
+                  <span class="fs-4 text-dual">wali</span><span class="fs-4 text-primary">yatim</span>
                 </span>
               </a>
             </div>
@@ -203,49 +204,6 @@
                   </a>
                 </li>
                 @endif
-                <li class="nav-main-item">
-                  <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-flag"></i>
-                    <span class="nav-main-link-name">Error</span>
-                  </a>
-                  <ul class="nav-main-submenu">
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="be_pages_error_all.html">
-                        <span class="nav-main-link-name">All</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_400.html">
-                        <span class="nav-main-link-name">400</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_401.html">
-                        <span class="nav-main-link-name">401</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_403.html">
-                        <span class="nav-main-link-name">403</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_404.html">
-                        <span class="nav-main-link-name">404</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_500.html">
-                        <span class="nav-main-link-name">500</span>
-                      </a>
-                    </li>
-                    <li class="nav-main-item">
-                      <a class="nav-main-link" href="op_error_503.html">
-                        <span class="nav-main-link-name">503</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
               </ul>
             </div>
             <!-- END Side Navigation -->
@@ -412,10 +370,10 @@
         <div class="content py-3">
           <div class="row fs-sm">
             <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-              Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="#" target="_blank">iniwas</a>
+              Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://bit.ly/dawwas-portfolio" target="_blank">iniwas</a>
             </div>
             <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <a class="fw-semibold" href="#" target="_blank">Codebase 5.3</a> &copy; <span data-toggle="year-copy"></span>
+              <a class="fw-semibold" href="#">Wali Yatim</a> &copy; <span data-toggle="year-copy"></span>
             </div>
           </div>
         </div>
@@ -424,8 +382,11 @@
     </div>
     <!-- END Page Container -->
 
+    <!-- Page JS Plugins -->
     <script src="{{ asset('assets/js/codebase.app.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/chart.js/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/be_comp_dialogs.min.js') }}"></script>
     @yield('js')
 
   </body>

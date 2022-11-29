@@ -66,13 +66,6 @@ class PenerimaDonasiController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->akta_kematian_bapak('file');
-
-        // $validatedData = $request->validate([
-        //     'akta_kematian_bapak' => 'required|csv,txt,xlx,xls,pdf|max:2048',
-        //     'akta_kematian_ibu' => 'required|csv,txt,xlx,xls,pdf|max:2048',
-        // ]);
-        
         $model = new PenerimaDonasi;
         $model->name = $request->name;
         $model->tanggal_lahir = $request->tanggal_lahir;
@@ -143,6 +136,24 @@ class PenerimaDonasiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->file('akta_kematian_bapak')){
+            $file = $request->file('akta_kematian_bapak');
+            $nama_file = time().str_replace(" ", "", $file->getClientOriginalName());
+            $file->move('akta_kematian_bapak', $nama_file);
+            PenerimaDonasi::where('id', $id)->update([
+                'akta_kematian_bapak' => $nama_file,
+            ]);
+        }
+
+        if($request->file('akta_kematian_ibu')){
+            $file = $request->file('akta_kematian_ibu');
+            $nama_file = time().str_replace(" ", "", $file->getClientOriginalName());
+            $file->move('akta_kematian_ibu', $nama_file);
+            PenerimaDonasi::where('id', $id)->update([
+                'akta_kematian_ibu' => $nama_file,
+            ]);
+        }
+
         PenerimaDonasi::where('id', $id)->update([
             'name' => $request->name,
             'tanggal_lahir' => $request->tanggal_lahir,
@@ -170,10 +181,10 @@ class PenerimaDonasiController extends Controller
     public function detail($id)
     {
         $data = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
-        ->select('penerima_donasis.*', 'master_districts.name as districts_name')
+        ->join('users', 'donatur_id', '=', 'users.id')
+        ->select('penerima_donasis.*', 'master_districts.name as districts_name', 'users.name as donatur')
         ->where('penerima_donasis.id', $id)
         ->first();
-
 
         $transaksis = transaksi::where('pd_id', $id)
                 ->where('status', 1)

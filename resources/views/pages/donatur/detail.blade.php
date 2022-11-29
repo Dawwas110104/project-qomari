@@ -67,7 +67,7 @@
                             @csrf
                             <input type="hidden" name="donatur_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="id" value="{{ $data->id }}">
-                            <button type="submit" class="btn btn-sm btn-primary">Tambah Anak Asuh</button>
+                            <button type="submit" class="js-swal-success btn btn-sm btn-primary">Tambah Anak Asuh</button>
                         </form>
                       </div>
                     </div>

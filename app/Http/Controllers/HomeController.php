@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Facade;
+use PharIo\Manifest\Author;
 
 class HomeController extends Controller
 {
@@ -16,7 +19,7 @@ class HomeController extends Controller
 
     public function redirectTo()
     {
-        switch(Auth::user()->role_id){
+        switch(FacadesAuth::user()->role_id){
             case 2:
             $this->redirectTo = '/donatur';
             return $this->redirectTo;
@@ -43,18 +46,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        switch(Auth::user()->role_id){
+        switch(FacadesAuth::user()->role_id){
             case 2:
                 $this->redirectTo = '/donatur';
                 return redirect()->route('donatur.index');
                 break;
             case 1:
                 $this->redirectTo = '/admin';
-                return $this->redirectTo;
+                return redirect()->route('admin');
                 break;
             default:
                 $this->redirectTo = '/login';
-                return $this->redirectTo;
+                return redirect()->route('login');
         }
     }
 }

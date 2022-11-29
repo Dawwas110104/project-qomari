@@ -189,19 +189,7 @@ class TransaksiController extends Controller
 
         return redirect()->route('transaksi.index');
     }
-
-    public function email()
-    {
-        $details = [
-            'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp'
-        ];
-       
-        Mail::to('dawwas.inha@gmail.com')->send(new \App\Mail\MyTestMail($details));
-       
-        dd("Email is Sent.");
-    }
-
+    
     public function template()
     {
         $template = FacadesDB::table('email_template')->first()->template;

@@ -97,12 +97,12 @@ class DonaturController extends Controller
         $datas = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
                 ->select('penerima_donasis.*', 'master_districts.name as districts_name')
                 ->whereNull('penerima_donasis.donatur_id')
-                ->orWhere('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('master_districts.name', 'LIKE', '%' . $keyword . '%')
+                ->where('penerima_donasis.name', 'LIKE', '%' . $keyword . '%')
+                ->where('master_districts.name', 'LIKE', '%' . $keyword . '%')
                 ->sortable()
                 ->paginate(3);
 
-        return dd($datas);
+        // return dd($datas);
 
         $datas->appends($request->all());
 
@@ -130,7 +130,7 @@ class DonaturController extends Controller
             'donatur_id' => $request->donatur_id,
         ]);
         
-        return redirect()->back();
+        return redirect()->route('donatur.anak-asuh');
     }
 
     public function anakAsuh(Request $request)
@@ -158,7 +158,7 @@ class DonaturController extends Controller
         ->where('penerima_donasis.id', $id)
         ->first();
 
-        $transaksis = transaksi::where('donatur_id', FacadesAuth::user()->id)->get();
+        $transaksis = transaksi::where('pd_id', $id)->get();
 
         return view('pages.donatur.anakasuh-detail', compact(
             'data',
@@ -170,13 +170,12 @@ class DonaturController extends Controller
     {
         $keyword = $request->keyword;
         $transaksis = transaksi::join('penerima_donasis', 'pd_id', '=', 'penerima_donasis.id')
+                    ->select('transaksis.*', 'penerima_donasis.name as name')
                     ->where('transaksis.donatur_id', FacadesAuth::user()->id)
                     ->where('name', 'LIKE', '%' . $keyword . '%')
                     ->where('bulan', 'LIKE', '%' . $keyword . '%')
                     ->sortable()
                     ->paginate(3);
-
-        // return $transaksis;
 
         return view('pages.donatur.transaksi.transaksi', compact(
             [
@@ -184,5 +183,33 @@ class DonaturController extends Controller
                 'keyword'
             ]
         ));
+    }
+
+    public function transaksiDetail($id)
+    {
+        $data = transaksi::where('transaksis.id', $id)
+                ->join('users', 'transaksis.donatur_id', '=', 'users.id')
+                ->join('penerima_donasis', 'transaksis.pd_id', '=', 'penerima_donasis.id')
+                ->select('transaksis.*', 'users.name as nama_donatur', 'penerima_donasis.name as nama_penerimadonasi')
+                ->first();
+
+        return view('pages.donatur.transaksi.detail', compact(
+            [
+                'data',
+
+            ]
+        ));
+    }
+
+    public function upload($id, Request $request)
+    {
+        $file = $request->file('bukti_tf');
+        $nama_file = time().str_replace(" ", "", $file->getClientOriginalName());
+        $file->move('bukti_tf', $nama_file);
+
+        transaksi::where('id', $id)->update([
+            'bukti_tf' => $nama_file,
+        ]);
+        return redirect()->back();
     }
 }

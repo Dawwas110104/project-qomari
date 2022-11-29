@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return redirect()->route('login');
+});
 // ->middleware('verified');
 
 // Auth::routes(['verify' => true]);
@@ -38,8 +38,10 @@ Route::middleware(['donatur', 'verified'])->group(function () {
     Route::post('/donatur/tambah-anak-asuh', [DonaturController::class, 'tambahAnakAsuh'])->name('donatur.tambah-anak-asuh');
     Route::get('/donatur/anak-asuh', [DonaturController::class, 'anakAsuh'])->name('donatur.anak-asuh');
     Route::get('/donatur/transaksi', [DonaturController::class, 'transaksi'])->name('donatur.transaksi');
+    Route::get('/donatur/transaksi/{id}/detail', [DonaturController::class, 'transaksiDetail'])->name('donatur.transaksi.detail');
     Route::get('/donatur/list/{id}/detail', [DonaturController::class, 'detail'])->name('donatur.detail');
     Route::get('/donatur/anak-asuh/{id}/detail', [DonaturController::class, 'anakAsuhDetail'])->name('donatur.anakasuh-detail');
+    Route::post('/donatur/transaksi/{id}/upload', [DonaturController::class, 'upload'])->name('donatur.upload');
     Route::resource('donatur', DonaturController::class);
 });
 
@@ -62,18 +64,6 @@ Route::middleware(['admin'])->group(function () {
         'transaksi' => TransaksiController::class,
     ]);
 });
-
-Route::get('send-mail', function () {
-   
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body' => 'This is for testing email using smtp'
-    ];
-   
-    Mail::to('dawwas.inha@gmail.com')->send(new \App\Mail\MyTestMail($details));
-   
-    dd("Email is Sent.");
-})->name('send-email');
 
 Route::get('email-index', [AdminController::class, 'email']);
 

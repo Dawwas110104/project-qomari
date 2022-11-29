@@ -13,7 +13,7 @@
                             <i class="fa fa-money-bill-transfer fa-4x text-primary"></i>
                         </div>
                         <div class="fs-4 fw-semibold">Transaksi</div>
-                        <div class="text-muted">Your main list is growing!</div>
+                        <!-- <div class="text-muted">Your main list is growing!</div> -->
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                             <i class="fa fa-hands-holding-child fa-4x text-primary"></i>
                         </div>
                         <div class="fs-4 fw-semibold">Anak Asuh</div>
-                        <div class="text-muted">Your main list is growing!</div>
+                        <!-- <div class="text-muted">Your main list is growing!</div> -->
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                             <i class="fa fa-children fa-4x text-primary"></i>
                         </div>
                         <div class="fs-4 fw-semibold">Anak Yatim</div>
-                        <div class="text-muted">Your main list is growing!</div>
+                        <!-- <div class="text-muted">Your main list is growing!</div> -->
                     </div>
                 </div>
             </div>

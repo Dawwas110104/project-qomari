@@ -8,7 +8,7 @@
         <div class="block-content">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
-                    <form class="mb-5" method="POST" action="{{ route('penerimadonasi.update', $data->id) }}">
+                    <form class="mb-5" method="POST" action="{{ route('penerimadonasi.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row mb-3">
@@ -98,7 +98,7 @@
                             <label for="akta_kematian_ibu" class="col-md-4 col-form-label text-md-end">{{ __('Akta Kematian Ibu') }}</label>
 
                             <div class="col-md-6">
-                                <input id="akta_kematian_ibu" type="file" class="form-control @error('akta_kematian_ibu') is-invalid @enderror" name="akta_kematian_ibu" value="{{ $data->akta_kematian_ibu }} autocomplete="akta_kematian_ibu" autofocus>
+                                <input id="akta_kematian_ibu" type="file" class="form-control @error('akta_kematian_ibu') is-invalid @enderror" name="akta_kematian_ibu" value="{{ $data->akta_kematian_ibu }}" autocomplete="akta_kematian_ibu" autofocus>
 
                                 @error('akta_kematian_ibu')
                                     <span class="invalid-feedback" role="alert">
@@ -112,7 +112,7 @@
                             <label for="akta_kematian_bapak" class="col-md-4 col-form-label text-md-end">{{ __('Akta Kematian Bapak') }}</label>
 
                             <div class="col-md-6">
-                                <input id="akta_kematian_bapak" type="file" class="form-control @error('akta_kematian_bapak') is-invalid @enderror" name="akta_kematian_bapak" value="{{ $data->akta_kematian_bapak }} autocomplete="akta_kematian_bapak" autofocus>
+                                <input id="akta_kematian_bapak" type="file" class="form-control @error('akta_kematian_bapak') is-invalid @enderror" name="akta_kematian_bapak" value="{{ $data->akta_kematian_bapak }}" autocomplete="akta_kematian_bapak" autofocus>
 
                                 @error('akta_kematian_bapak')
                                     <span class="invalid-feedback" role="alert">

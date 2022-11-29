@@ -15,7 +15,17 @@
               <div class="row">
                 <div class="col-lg-4">
                   <p class="text-muted">
-                  {{ $data->bukti_tf }}
+                    @if(!empty($data->bukti_tf))
+                    <div class="items-push js-gallery img-fluid-100">
+                        <div class="animated fadeIn">
+                        <a class="img-link img-link-zoom-in img-thumb img-lightbox" href="/bukti_tf/{{ $data->bukti_tf }}">
+                            <img class="img-fluid" src="/bukti_tf/{{ $data->bukti_tf }}" alt="">
+                        </a>
+                        </div>
+                    </div>
+                    @else
+                        Bukti transfer belum diupload
+                    @endif
                   </p>
                 </div>
 
@@ -47,6 +57,7 @@
                     </div>
 
                     <div class="row row-cols-lg-auto g-3 align-items-center">
+                    @if($data->status != 1)
                         <form  action="{{ route('transaksi.tolak', $data->id) }}" method="POST">
                             @csrf
                             <div>
@@ -61,6 +72,7 @@
                                 <button type="submit" class="btn btn-success">Terima</button>
                             </div>
                         </form>
+                    @endif
                     </div>
                     
                     <!-- END Order Summary -->
@@ -75,8 +87,13 @@
 </div>
 @endsection
 
-@section('script')
-    <script>
-        
-    </script>
+@section('js')
+    <!-- jQuery (required for Magnific Popup plugin) -->
+    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="{{ asset('assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+    <!-- Page JS Helpers (Magnific Popup Plugin) -->
+    <script>Codebase.helpersOnLoad(['jq-magnific-popup']);</script>
 @endsection

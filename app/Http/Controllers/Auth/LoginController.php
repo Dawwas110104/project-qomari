@@ -6,6 +6,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class LoginController extends Controller
 {
@@ -20,6 +21,7 @@ class LoginController extends Controller
     |
     */
 
+
     use AuthenticatesUsers;
 
     /**
@@ -31,7 +33,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        switch(Auth::user()->role_id){
+        switch(FacadesAuth::user()->role_id){
             case 2:
             $this->redirectTo = '/donatur';
             return $this->redirectTo;

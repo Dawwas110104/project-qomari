@@ -42,9 +42,10 @@
                 <div class="block-content fs-sm">
                     <div class="fw-bold mb-1">{{ $data->name }}</div>
                     <address>
-                        {{ $data->tanggal_lahir }}<br>
+                        {{ $data->tanggal_lahir }} ({{ $data->usia() }} Tahun)<br>
                         {{ $data->alamat }}<br>
                         {{ $data->districts_name }}<br><br>
+                        Donatur : {{ $data->donatur }}<br>
                     </address>
                 </div>
             </div>
@@ -55,7 +56,7 @@
         <div class="col-lg-8">
             <div class="block block-rounded h-100 mb-0">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Informasi  Donasi</h3>
+                    <h3 class="block-title">Informasi  Donasi</h3> 
                 </div>
                 <div class="block-content">
                     <div class="table-responsive">
@@ -87,8 +88,62 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-6 h-50">
+            <div class="block block-rounded h-100 mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Akta Kematian Bapak</h3>
+                </div>
+                <div class="block-content">
+                @if(!empty($data->akta_kematian_bapak))
+                    <div class="items-push js-gallery img-fluid-100">
+                        <div class="animated fadeIn">
+                        <a class="img-link img-link-zoom-in img-thumb img-lightbox" href="/akta_kematian_bapak/{{ $data->akta_kematian_bapak }}">
+                            <img class="img-fluid" src="/akta_kematian_bapak/{{ $data->akta_kematian_bapak }}" alt="">
+                        </a>
+                        </div>
+                    </div>
+                @else
+                    Tidak ada file
+                @endif
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="block block-rounded h-100 mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">Akta Kematian Ibu</h3>
+                </div>
+                <div class="block-content">
+                @if(!empty($data->akta_kematian_ibu))
+                    <div class="items-push js-gallery img-fluid-100">
+                        <div class="animated fadeIn">
+                        <a class="img-link img-link-zoom-in img-thumb img-lightbox" href="/akta_kematian_ibu/{{ $data->akta_kematian_ibu }}">
+                            <img class="img-fluid" src="/akta_kematian_ibu/{{ $data->akta_kematian_ibu }}" alt="">
+                        </a>
+                        </div>
+                    </div>
+                @else
+                    Tidak ada file
+                @endif
+                </div>
+            </div>
+        </div>
+        
         <!-- END Shipping Address -->
     </div>
     <!-- END Addresses -->
 </main>
+@endsection
+
+@section('js')
+    <!-- jQuery (required for Magnific Popup plugin) -->
+    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="{{ asset('assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+    <!-- Page JS Helpers (Magnific Popup Plugin) -->
+    <script>Codebase.helpersOnLoad(['jq-magnific-popup']);</script>
 @endsection

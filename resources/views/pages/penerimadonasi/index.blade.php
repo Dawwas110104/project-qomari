@@ -60,19 +60,15 @@
                                     <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
                                         <i class="si si-info"></i>
                                     </button>
-                                </a>
-                                
-                                <a href="{{ route('penerimadonasi.destroy', $data->id) }}" onclick="event.preventDefault();
-                                                document.getElementById('{{ $data->id }}').submit();" style="color: #fff;">
-                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </a>                                
+                                </a>                         
                                 
 
-                                <form id="{{ $data->id }}" action="{{ route('penerimadonasi.destroy', $data->id ) }}" method="POST" class="d-none">
+                                <form id="{{ $data->id }}" action="{{ route('penerimadonasi.destroy', $data->id ) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
+                                    <button class="btn btn-sm btn-secondary show_confirm" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </form>
                             </div>
                         </td>
@@ -88,31 +84,27 @@
     <!-- END Full Table -->
 @endsection
 
-@section('script')
-    <script>
-        // function deleteUser(){
-        //     swal({
-        //         title: "Error!",``
-        //         text: "Here's my error message!",
-        //         type: "error",
-        //         confirmButtonText: "Cool"
-        //    });
-        // };
-
-        // $('.delete-user').click( function(){
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'Something went wrong!',
-        //         footer: '<a href="">Why do I have this issue?</a>'
-        //     });
-        // })
-
-        // Swal.fire({
-        //     icon: 'error',
-        //     title: 'Oops...',
-        //     text: 'Something went wrong!',
-        //     footer: '<a href="">Why do I have this issue?</a>'
-        // });
-    </script>
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
 @endsection

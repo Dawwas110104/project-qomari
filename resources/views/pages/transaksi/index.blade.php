@@ -36,10 +36,10 @@
                     <i class="fa fa-user"></i>
                     </th>
                     <th>Donatur</th>
-                    <th style="">Anak Yatim</th>
-                    <th style="">Bulan</th>
-                    <th style="">Nominal</th>
-                    <th style="">Bukti Transfer</th>
+                    <th>Anak Yatim</th>
+                    <th>Bulan</th>
+                    <th>Nominal</th>
+                    <th>Bukti Transfer</th>
                     <th class="text-center" style="width: 100px;">Status</th>
                     <th class="text-center" style="width: 100px;">Aksi</th>
                 </tr>
@@ -71,30 +71,26 @@
                         <td class="text-center">
                             <div class="btn-group">
                             @if($data->bukti_tf  == NULL)
-                                <a href="{{ route('transaksi.destroy', $data->id) }}" onclick="event.preventDefault();
-                                                document.getElementById('{{ $data->id }}').submit();" style="color: #fff;">
-                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
+                                <form id="{{ $data->id }}" action="{{ route('transaksi.destroy', $data->id ) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-secondary show_confirm" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
                                         <i class="fa fa-times"></i>
                                     </button>
-                                </a>
+                                </form>
                             @else
-                                @if($data->status == 1)
-
-                                @else
                                 <a href="{{ route('transaksi.detail', $data->id) }}" style="color: #fff;">
                                     <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;">
                                         <i class="si si-info"></i>
                                     </button>
                                 </a>
-                                <a href="{{ route('transaksi.destroy', $data->id) }}" onclick="event.preventDefault();
-                                                document.getElementById('{{ $data->id }}').submit();" style="color: #fff;">
-                                    <button class="btn btn-sm btn-secondary" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </a>
-                                <form id="{{ $data->id }}" action="{{ route('transaksi.destroy', $data->id ) }}" method="POST" class="d-none">
+                                @if($data->status != 1)
+                                <form id="{{ $data->id }}" action="{{ route('transaksi.destroy', $data->id ) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
+                                    <button class="btn btn-sm btn-secondary show_confirm" style="border-radius: 0 !important;" data-bs-toggle="tooltip">
+                                        <i class="fa fa-times"></i>
+                                    </button>
                                 </form>
                                 @endif
                             @endif
@@ -113,8 +109,27 @@
 </div>
 @endsection
 
-@section('script')
-    <script>
-        
-    </script>
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+     $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  
+</script>
 @endsection
