@@ -181,12 +181,13 @@ class PenerimaDonasiController extends Controller
     public function detail($id)
     {
         $data = PenerimaDonasi::join('master_districts', 'kec_domisili', '=', 'master_districts.id')
-        ->join('users', 'donatur_id', '=', 'users.id')
-        ->select('penerima_donasis.*', 'master_districts.name as districts_name', 'users.name as donatur')
+        ->select('penerima_donasis.*', 'master_districts.name as districts_name',)
         ->where('penerima_donasis.id', $id)
         ->first();
 
-        // return $data;
+        $donatur = PenerimaDonasi::join('users', 'donatur_id', '=', 'users.id')->first();
+
+        // return $donatur;
 
         $transaksis = transaksi::where('pd_id', $id)
                 ->where('status', 1)
@@ -197,7 +198,8 @@ class PenerimaDonasiController extends Controller
 
         return view('pages.penerimadonasi.detail', compact(
             'data',
-            'transaksis'
+            'transaksis',
+            'donatur'
         ));
     }
 }
