@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AdminMiddleware
 {
@@ -17,15 +17,15 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return redirect()->route('welcome');
+        if (!FacadesAuth::check()) {
+            return redirect()->route('login');
         }
 
-        if (Auth::user()->role == 'donatur') {
+        if (FacadesAuth::user()->role == 'donatur') {
             return redirect()->route('donatur.index');
         }
 
-        if (Auth::user()->role == 'admin') {
+        if (FacadesAuth::user()->role == 'admin') {
             return $next($request);
         }
 

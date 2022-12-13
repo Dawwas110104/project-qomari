@@ -24,7 +24,7 @@ class CreatePenerimaDonasisTable extends Migration
             $table->string('nik')->unique();
             $table->string('akta_kematian_ibu')->nullable();
             $table->string('akta_kematian_bapak')->nullable();
-            $table->integer('rekening_bank');
+            $table->integer('rekening_bank')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
