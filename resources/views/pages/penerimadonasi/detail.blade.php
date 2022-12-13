@@ -45,7 +45,11 @@
                         {{ $data->tanggal_lahir }} ({{ $data->usia() }} Tahun)<br>
                         {{ $data->alamat }}<br>
                         {{ $data->districts_name }}<br><br>
-                        Donatur     : {{ $donatur->name }}<br>
+                        @if(!empty($donatur))
+                            Donatur     : {{ $donatur->name }}<br>
+                        @else
+                            Donatur     : Belum ada donatur<br>
+                        @endif
                         No Rekening : {{ $data->rekening_bank }}<br>
                     </address>
                 </div>
