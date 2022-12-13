@@ -45,6 +45,7 @@
                         {{ $data->tanggal_lahir }} ({{ $data->usia() }} Tahun)<br>
                         {{ $data->alamat }}<br>
                         {{ $data->districts_name }}<br><br>
+                        No Rekening : {{ $data->rekening_bank }}<br>
                     </address>
                 </div>
             </div>
